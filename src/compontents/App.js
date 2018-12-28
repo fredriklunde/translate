@@ -3,14 +3,19 @@ import React from 'react';
 class App extends React.Component {
     state = { language: 'english'}
 
+    onLanguageChange = language => {
+        this.setState({ language });
+    }
+
     render() {
         return (
             <div className="ui container">
                 <div>
                     Select language:
-                    <i className="flag us" />
-                    <i className="flag se" />
+                    <i className="flag us" onClick={() => this.onLanguageChange('english')}/>
+                    <i className="flag se" onClick={() => this.onLanguageChange('swedish')}/>
                 </div>
+                {this.state.language}
             </div>
         )
     }
